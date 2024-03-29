@@ -23,4 +23,4 @@ app.use(cookieSession({
 app.use("/api/users", userRouter); 
 app.use("/api/auth", authRouter); 
 
-app.listen(3001, () => console.log("Server is up and running..."))
+app.listen(3002, () => console.log("Server is up and running..."))
