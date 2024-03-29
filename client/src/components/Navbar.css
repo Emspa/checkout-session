@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    background-color: white;
+    height: 70px;
+    margin: 0;
+    padding-right: 50px;
+}
+  
+.navlinks {
+    display: flex;
+    justify-content: center; 
+    list-style: none;
+    margin: 0;
+}
+  
+.navlinks li {
+    margin-left: 25px;
+    display: flex; /* Gör även listelementen till flex-containrar för att centrera innehållet i dem */
+    align-items: center;
+}
+  
+.navlinks li a {
+    text-decoration: none; 
+    font-family: 'montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: black;
+}
+
+.profile-img {
+    width: 30px; /* Eller vilken storlek du önskar */
+    height: auto; /* Bibehåller bildens proportioner */
+  }
+  
+  .cart-img {
+    width: 25px; /* Gör denna mindre än profile-img */
+    height: auto; /* Bibehåller bildens proportioner */
+  }
+  .navlinks li a.active {
+    color: grey; 
+}
+  
