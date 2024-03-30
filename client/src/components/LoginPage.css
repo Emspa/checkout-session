@@ -1,0 +1,84 @@
+/** Grundläggande typografi **/
+h1, h2 {
+    color: #333; /* Mörkare grå för bättre läsbarhet */
+    font-family: 'Helvetica Neue', sans-serif; /* En mer modern typsnittsfamilj */
+  }
+  
+  h1 {
+    margin-bottom: 2rem; /* Ger utrymme under rubriken */
+    font-size: 24px; /* Lite större för att sätta fokus */
+  }
+  
+  h2 {
+    font-size: 18px; /* Tydligt men inte överväldigande */
+    cursor: pointer; /* Indikerar klickbarhet */
+  }
+  
+
+.wrapped {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 800px;
+    height: 500px;
+}
+
+
+/** Stilisering av formulärfält **/
+input[type="text"] {
+    width: 90%; /* Full bredd inom container */
+    padding: 10px;
+    margin: 10px 0; /* Utrymme ovanför och under */
+    border: 1px solid #ccc; /* Subtil kant */
+    border-radius: 4px; /* Rundade hörn */
+    box-sizing: border-box; /* Hindrar padding från att utöka bredden */
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+  }
+  
+  input[type="text"]::placeholder {
+    color: #aaa; /* Ljusare färg för placeholders */
+  }
+
+  input[type="text"]:focus {
+    outline: 2px solid #666; /* Mörkare grå outline vid fokus */
+    border-color: transparent; /* Gör kanten transparent när fältet är i fokus */
+    background-color: #fff; /* Kan behålla bakgrundsfärgen vit om så önskas */
+    color: #000; /* Säkerställer att textfärgen fortfarande är svart */
+  }
+  
+  /** Stilisering av knappen **/
+  button {
+    width: 90%;
+    padding: 10px;
+    margin-top: 20px; /* Extra utrymme ovanför knappen */
+    border: none; /* Tar bort standardkant */
+    border-radius: 4px;
+    background-color: #333; /* En klar, uppmärksamhetsväckande färg */
+    color: white; /* Vit text för kontrast */
+    cursor: pointer;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+.register-container {
+    margin-top: 25px;
+
+}
+
+.register-container h2 {
+    font-size: 14px;
+    color: #333;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+    text-decoration: underline;
+
+}
