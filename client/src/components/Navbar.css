@@ -17,7 +17,7 @@
   
 .navlinks li {
     margin-left: 25px;
-    display: flex; /* Gör även listelementen till flex-containrar för att centrera innehållet i dem */
+    display: flex; 
     align-items: center;
 }
   
@@ -30,13 +30,13 @@
 }
 
 .profile-img {
-    width: 30px; /* Eller vilken storlek du önskar */
-    height: auto; /* Bibehåller bildens proportioner */
+    width: 30px; 
+    height: auto; 
   }
   
   .cart-img {
-    width: 25px; /* Gör denna mindre än profile-img */
-    height: auto; /* Bibehåller bildens proportioner */
+    width: 25px; 
+    height: auto; 
   }
   .navlinks li a.active {
     color: grey; 
