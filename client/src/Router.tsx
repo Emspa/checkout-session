@@ -3,6 +3,7 @@ import { Layout } from "./pages/Layout";
 import { Products } from "./pages/Products";
 import { Login } from "./pages/Login";
 import { Cart } from "./pages/Cart";
+import { Confirmation } from "./pages/Confirmation";
 
 
 
@@ -25,6 +26,11 @@ export const router = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart />,
+
+            }, 
+            {
+                path: '/confirmation',
+                element: <Confirmation />,
 
             }, 
         ]
