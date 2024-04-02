@@ -24,3 +24,8 @@ POST http://localhost:3002/api/auth/logout
 ###
 
 GET http://localhost:3002/api/auth/authorize
+
+###
+
+
+POST http://localhost:3002/payments/create-checkout-session

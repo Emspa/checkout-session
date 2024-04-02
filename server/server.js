@@ -1,12 +1,21 @@
+require("dotenv").config()
+
+console.log(`Stripe Key Loaded: ${process.env.STRIPE_KEY ? 'Yes' : 'No'}`);
+
 const express = require("express")
 const cookieSession = require("cookie-session")
 const cors = require("cors")
 
 
+
 const userRouter = require("./resources/users/users.router")
 const authRouter = require("./resources/auth/auth.router")
 
+const stripeRouter = require("./stripe/stripe.router")
 const app = express()
+
+
+
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -22,5 +31,7 @@ app.use(cookieSession({
 //Routes
 app.use("/api/users", userRouter); 
 app.use("/api/auth", authRouter); 
+
+app.use("/payments", stripeRouter)
 
 app.listen(3002, () => console.log("Server is up and running..."))

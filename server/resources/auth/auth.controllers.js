@@ -38,9 +38,11 @@ const login = async (req, res) => {
     const userExists = users.find(u => u.email === email)
 
     //Kolla så att lösenordet stämmer och att användaren finns
-    if (!userExists || !await bcrypt.compare(password, userExists.password)) {
-        return res.status(400).json("Wrong user or password")
+    if (!userExists || !await bcrypt.compare(password, userExists.password))
+     {console.log("Login attempt failed for user:", email);
+        return res.status(400).json({ message: "Invalid email or password" })
     }
+    console.log("User logged in successfully:", email);
 
     //Skapa en session
     req.session.user = userExists
