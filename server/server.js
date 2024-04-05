@@ -31,7 +31,8 @@ app.use(cookieSession({
 //Routes
 app.use("/api/users", userRouter); 
 app.use("/api/auth", authRouter); 
+app.use("/api/stripe", stripeRouter);
 
-app.use("/payments", stripeRouter)
+
 
 app.listen(3002, () => console.log("Server is up and running..."))

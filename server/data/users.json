@@ -46,5 +46,10 @@
   {
     "email": "emili1234@hotmail.com",
     "password": "$2b$10$kWIGSUzcol5hRRNjhopE6eH/HQqVi35lKgU2yQlHZRtUkpL3jIy2q"
+  },
+  {
+    "email": "Haris95@hotmail.com",
+    "password": "$2b$10$mn8/6H.4zIF0gx5X/l0g1OWGAQv/WSZyP0Mc/TX2j9eaF5MWGMb0K",
+    "stripeCustomerId": "cus_Ps3MECIFgdXJ6c"
   }
 ]

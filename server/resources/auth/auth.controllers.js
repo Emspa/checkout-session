@@ -1,10 +1,13 @@
 const fs = require("fs").promises
 const bcrypt = require("bcrypt")
 const fetchUsers = require("../../utils/fetchUsers")
+const initStripe = require("../../stripe")
 
 const register = async (req, res) => {
 
     const { email, password } = req.body
+
+    const stripe = initStripe(); 
 
     //Kolla så att användaren inte redan finns
     const users = await fetchUsers()
@@ -16,18 +19,30 @@ const register = async (req, res) => {
 
     //Kryptera lösenordet
     const hashedPassword = await bcrypt.hash(password, 10)
+    
 
-    //Sparar till databasen
-    const newUser = {
-        email,
-        password: hashedPassword
+    try {
+        const stripeCustomer = await stripe.customers.create({
+            email: email,
+
+        });
+
+        const newUser = {
+            email,
+            password: hashedPassword,
+            stripeCustomerId: stripeCustomer.id, 
+        };
+        users.push(newUser);
+        await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2));
+
+
+        res.status(201).json({ message: "User registered successfully", stripeCustomerId: stripeCustomer.id });
+    } catch (error) {
+        console.error('Stripe error:', error);
+        res.status(500).json({ error: 'Failed to register user in Stripe.' });
     }
-    users.push(newUser)
-    await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2))
+};
 
-    //Skicka tillbaka ett svar
-    res.status(201).json(newUser.email)
-}
 
 const login = async (req, res) => {
     //Kolla så att användaren finns
