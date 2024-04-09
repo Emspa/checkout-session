@@ -4,6 +4,7 @@ import { Products } from "./pages/Products";
 import { Login } from "./pages/Login";
 import { Cart } from "./pages/Cart";
 import { Confirmation } from "./pages/Confirmation";
+import { ProductDetail } from "./pages/ProductDetail";
 
 
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
                 element: <Confirmation />,
 
             }, 
+            {
+                path: '/product/:productId', 
+                element: <ProductDetail />,
+              },
         ]
 
     }
