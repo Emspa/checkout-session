@@ -9,7 +9,6 @@ const ProductsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch products from your backend
     const fetchProducts = async () => {
       const response = await fetch("http://localhost:3002/api/stripe/products");
       const data = await response.json();
@@ -20,7 +19,7 @@ const ProductsPage = () => {
   }, []);
 
   const handleProductClick = (productId: string) => {
-    navigate(`/product/${productId}`); // Use the navigate function to change the route
+    navigate(`/product/${productId}`); 
   };
 
   return (
@@ -42,8 +41,6 @@ const ProductsPage = () => {
               Price:{" "}
               {(product.default_price.unit_amount_decimal / 100).toFixed(2)}kr
             </p>{" "}
-            {/* Adjust based on your data structure */}
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}
       </div>

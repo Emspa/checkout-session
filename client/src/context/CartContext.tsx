@@ -1,61 +1,86 @@
-import { PropsWithChildren, createContext, useContext, useEffect, useState } from "react"
+// CartContext.tsx
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export interface Product {
-    id: string,
-    name: string,
-    description: string,
-    images: string[]
-    default_price: {
-        unit_amount: number
-    }
+  id: string;
+  name: string;
+  description: string;
+  images: string[];
+  default_price: {
+    unit_amount_decimal: number;
+    id: string;
+  };
 }
 
 interface CartItem {
-    product: Product,
-    quantity: number
+  product: Product;
+  quantity: number;
 }
 
-interface ICartContext {
-    cart: CartItem[],
-    addToCart: (product: Product) => void
+interface CartContextType {
+  cart: CartItem[];
+  addToCart: (product: Product, quantity?: number) => void;
+  removeFromCart: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
 }
 
-const initalValues = {
-    cart: [],
-    addToCart: () => { }
-}
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const CartContext = createContext<ICartContext>(initalValues)
-export const useCart = () => useContext(CartContext)
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const localData = localStorage.getItem('cart');
+    return localData ? JSON.parse(localData) : [];
+  });
 
-const CartProvider = ({ children }: PropsWithChildren) => {
-    const [cart, setCart] = useState<CartItem[]>(() => {
-        const lsData = localStorage.getItem("cart")
-        return lsData ? JSON.parse(lsData) : []
-    })
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
-    }, [cart])
+  }, [cart]);
 
-    const addToCart = (product: Product) => {
-        const clonedCart = [...cart]
+  const addToCart = (product: Product, quantity: number = 1) => {
+    setCart((prevCart) => {
+      const existingIndex = prevCart.findIndex((item) => item.product.id === product.id);
+      if (existingIndex >= 0) {
+        const updatedCart = [...prevCart];
+        updatedCart[existingIndex].quantity += quantity;
+        return updatedCart;
+      } else {
+        return [...prevCart, { product, quantity }];
+      }
+    });
+  };
 
-        const productAlreadyExists = clonedCart.find(item => item.product.id === product.id)
+  const removeFromCart = (productId: string) => {
+    setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));
+  };
 
-        if (productAlreadyExists) {
-            productAlreadyExists.quantity++
-            setCart(clonedCart)
-        } else {
-            setCart([...cart, { product, quantity: 1 }])
-        }
-    }
+  const updateQuantity = (productId: string, quantity: number) => {
+    setCart((prevCart) =>
+      prevCart.map((item) => 
+        item.product.id === productId ? { ...item, quantity: Math.max(quantity, 1) } : item
+      )
+    );
+  };
 
-    return (
-        <CartContext.Provider value={{ cart, addToCart }}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem('cart');
+  };
 
-export default CartProvider
+  
+
+  return (
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
+};

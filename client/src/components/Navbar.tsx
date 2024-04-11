@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css"
+import { useCart } from "../context/CartContext";
 
 export const Navbar = () => {
+
+  const {cart} = useCart()
   return (
     <nav className="navbar">
       <ul className="navlinks">
@@ -18,6 +21,7 @@ export const Navbar = () => {
         <li>
           <NavLink to="/cart">
             <img  className="cart-img" src="shopping-bag.png" alt="Cart" />
+      
           </NavLink>
         </li>
       </ul>
