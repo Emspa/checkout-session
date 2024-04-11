@@ -3,7 +3,7 @@ const fs = require("fs").promises
 
 const createCheckoutSession = async (req, res) => {
 
-    const cart = req.body
+    const { lineItems } = req.body
 
     const stripe = initStripe();
     if (!stripe) {
@@ -13,8 +13,8 @@ const createCheckoutSession = async (req, res) => {
     try {
         const session = await stripe.checkout.sessions.create({
             mode: "payment",
-            customer: "cs_test_b1vvW7RaqlFVaU0ekIKB6AzRxQ2VbVj7lE4hy4DJt9ZLcfUEruIb6gcBYz",
-            line_items: cart.map(item => {
+            customer: req.body.id,
+            line_items: lineItems.map(item => {
                 return {
                     price: item.priceId,
                     quantity: item.quantity
@@ -45,12 +45,12 @@ const verifySession= async (req, res) => {
             customerName: session.customer_details.name,
             products: lineItems.data,
             total: session.amount_total,
-            date: new date()
+            date: new Date()
         }
 
-        const orders = JSON.parse(await fs.readFile("../data/orders.json"))
+        const orders = JSON.parse(await fs.readFile("./data/orders.json"))
         orders.push(order)
-        await fs.writeFile("../data/orders.json", JSON.stringify(orders, null, 4));
+        await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 4));
 
         res.status(200).json({ verified: true })
     }
