@@ -1,4 +1,4 @@
-/* ProductDetailPage.css */
+
 .product-detail-container {
     display: flex;
     margin-top: 20px;
@@ -20,9 +20,5 @@
   
   .product-info p {
     color: #666;
-  }
-  
-  button {
-    /* Button styles */
   }
   

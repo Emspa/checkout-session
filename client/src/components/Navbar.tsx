@@ -1,32 +1,35 @@
+/** @format */
+
 import { NavLink } from "react-router-dom";
-import "./Navbar.css"
-import { useCart } from "../context/CartContext";
+import "./Navbar.css";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { LogoutButton } from "./LogoutButton";
 
 export const Navbar = () => {
+  const { user } = useContext(UserContext);
 
-  const {cart} = useCart()
   return (
     <nav className="navbar">
       <ul className="navlinks">
         <li>
-          <NavLink to="/" end style={({ isActive }) => ({ color: isActive ? 'grey' : 'black' })}>
+          <NavLink
+            to="/"
+            end
+            style={({ isActive }) => ({ color: isActive ? "grey" : "black" })}
+          >
             Products
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/login" >
-            <img className="profile-img" src="profile.png" alt="Login" />
-          </NavLink>
+        <li >
+          {user ? <LogoutButton /> : <NavLink to="/login">Login</NavLink>}
         </li>
         <li>
           <NavLink to="/cart">
-            <img  className="cart-img" src="shopping-bag.png" alt="Cart" />
-      
+            <img className="cart-img" src="shopping-bag.png" alt="Cart" />
           </NavLink>
         </li>
       </ul>
     </nav>
   );
 };
-
-

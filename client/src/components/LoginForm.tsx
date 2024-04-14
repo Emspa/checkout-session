@@ -1,6 +1,7 @@
 /** @format */
 
 import { ILoginProps } from "../models/ILoginProps";
+import "./LoginPage.css"
 
 export const Loginform = ({
   email,
@@ -28,7 +29,7 @@ export const Loginform = ({
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Log in</button>
+        <button className="btn" type="submit">Log in</button>
         {error && <div className="error">{error}</div>}
       </form>
     </div>

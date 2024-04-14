@@ -21,15 +21,19 @@ export const Confirmation = () => {
                     headers: {
                         "Content-Type": "application/json"
                     },
+                    credentials: 'include',
                     body: JSON.stringify({ sessionId })
                 })
 
                 const data = await response.json()
 
-                if (response.ok) {
+                if (data.verified) {
+                    localStorage.removeItem("sessionId")
                     setVerified(data.verified)
+                    
                     setIsLoading(false)
                 }
+
             }
 
             verifySession()

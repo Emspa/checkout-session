@@ -29,6 +29,21 @@
     color: black;
 }
 
+.logout-btn {
+    font-weight: 300;
+    font-size: 14px;
+    font-family: 'montserrat', sans-serif;
+    background-color: white;
+    color: black;
+    padding: 0;
+    border: none;
+    margin: 0;
+
+}
+
+.logout-btn:hover {
+    background-color: white;
+}
 .profile-img {
     width: 30px; 
     height: auto; 
