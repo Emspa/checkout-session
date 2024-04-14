@@ -63,20 +63,22 @@ const login = async (req, res) => {
     req.session.user = userExists
 
     // Skicka tillbaka ett svar
-
-    res.status(200).json(userExists.email)
+    console.log(userExists)
+    console.log({email: userExists.email, stripeCustomerId: userExists.stripeCustomerId})
+    res.status(200).json({email: userExists.email, stripeCustomerId: userExists.stripeCustomerId})
 }
 
 const logout = (req, res) => {
     req.session = null
     res.status(200).json("Successfully logged out")
+    console.log("user is logged out")
 }
 
 const authorize = (req, res, next) => {
     if (!req.session.user) {
         return res.status(401).json("You are not logged in")
     }
-    res.status(200).json(req.session.user.email)
+    res.status(200).json({email: req.session.user.email, stripeCustomerId: req.session.stripeCustomerId})
 }
 
 

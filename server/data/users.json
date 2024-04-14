@@ -1,55 +1,47 @@
 [
   {
-    "email": "Haris12395@gmail.com",
-    "password": "$2b$10$m9xaduI084KpTJQsfyTHse3lyU6KP/gZzlgsVfScdaKHPFBWf2KGq"
-  },
-  {
-    "email": "",
-    "password": "$2b$10$QiCsXu67Bkj5OFLc84eAi...REYSZL2j7HZfWT3SK43moXnMZeQiS"
-  },
-  {
-    "email": "emili@gmail.com",
-    "password": "$2b$10$M60baaDajiapa2DZWp6gUuyXsMz2Sw8vBsbLxCbYK6xIgi94Gpmqa"
-  },
-  {
-    "email": "emilis123@gamil.com",
-    "password": "$2b$10$dIh5W.q7tnav/.oVzQ6yCO5szZoVmJJ4NPtT17ya.IOwMxMSeN6dy"
-  },
-  {
-    "email": "haris@gamil.com",
-    "password": "$2b$10$f85ynX3L7x1474/MSRtBbOWb/4HaCeeYJV4keHlEapyI40MPLCSl6"
-  },
-  {
-    "email": "haris@gmail.com",
-    "password": "$2b$10$Fsu04ugjDL9chKTg4wCG.Oi4fJ4RBFe9vL/0c4UScoOFqGezTuUOG"
-  },
-  {
-    "email": "emilis95@hotmail.com",
-    "password": "$2b$10$NQ7L9pRWkgdIuwInxF7cUuzB8MHIIT1F4KrE..zf5S5a6u1sWxirK"
-  },
-  {
-    "email": "em@gmail.com",
-    "password": "$2b$10$o/OMKHhfHVVeUA9VZG6ZLeKvWFBKwLCqdOroj6PS6aNoTct6w/DHS"
-  },
-  {
-    "email": "emilis1212@hotmail.com",
-    "password": "$2b$10$gGyT9FZLI2o1erdG6kRp/.bpfTuB6IQMPD0bStvmMlWfjGabSUzAi"
-  },
-  {
-    "email": "emilis955@hotmail.com",
-    "password": "$2b$10$LVVv0fYsAcVPkjZmy3XpSu4ElCwu8J5dfMLKNlASsTX8hP2M7EKyy"
-  },
-  {
-    "email": "emilis1213@hotmail.com",
-    "password": "$2b$10$IjVmTWv99gDKhoM2C4ULTuz.JHTxyIH7LXzrjNULCRyk6tuThTDKu"
-  },
-  {
-    "email": "emili1234@hotmail.com",
-    "password": "$2b$10$kWIGSUzcol5hRRNjhopE6eH/HQqVi35lKgU2yQlHZRtUkpL3jIy2q"
-  },
-  {
     "email": "Haris95@hotmail.com",
     "password": "$2b$10$mn8/6H.4zIF0gx5X/l0g1OWGAQv/WSZyP0Mc/TX2j9eaF5MWGMb0K",
     "stripeCustomerId": "cus_Ps3MECIFgdXJ6c"
+  },
+  {
+    "email": "espaspasovska@gmail.com",
+    "password": "$2b$10$z.GocFwZa3xReYfn9npl0u6pHOPeZ10ljthMq5wGszIwggVvQkn6K",
+    "stripeCustomerId": "cus_PuTJ1AG9bqGmov"
+  },
+  {
+    "email": "emilispasovska95@hotmail.com",
+    "password": "$2b$10$M7qtlUqoEVr5y7blL9nIUuBZtoSs3LgVqzoCHZ942izZns.p5ByIW",
+    "stripeCustomerId": "cus_PuVWSCINfgSzZC"
+  },
+  {
+    "email": "emilis95123@gmail.com",
+    "password": "$2b$10$JX.oszCtj0Y0A6osVQ0VuOkf6mpoMWxsmCVIRgfi.JNK.d4EZvu9e",
+    "stripeCustomerId": "cus_PutwTWmhBrHIJ1"
+  },
+  {
+    "email": "es123@gmail.com",
+    "password": "$2b$10$rs/S8S8.Qx2EPeOewTOBuuw2cFVFbe0RoqghQ8ekHTD2Z9d7VUpAS",
+    "stripeCustomerId": "cus_Puv7fipCLn0Ig0"
+  },
+  {
+    "email": "emili12345@hotmail.com",
+    "password": "$2b$10$Uw7KK7xihbPSr.69Sv4h6.dyb3iERjpVt2OqyOorfkdfzz1v0ofpa",
+    "stripeCustomerId": "cus_Pv1WivmAd21xJU"
+  },
+  {
+    "email": "emili@hotmail.com",
+    "password": "$2b$10$qk3mjjhwBt9tKbuRK/AlaOvtSapYxTe8uV8vyceND8gCHuxN3Fltm",
+    "stripeCustomerId": "cus_Pv2PqktchN3c5E"
+  },
+  {
+    "email": "emili@hotmil.com",
+    "password": "$2b$10$t2IZ2C9AYcW17dpN/tS1C..RsPiNGQ5SryrEQtpa5nROxxemuPGo2",
+    "stripeCustomerId": "cus_PvIpFUfzaOsyKp"
+  },
+  {
+    "email": "em12312@hotmail.com",
+    "password": "$2b$10$qX9cLNR7gVj1Ak5NxEGcmONoxzKXs3relp.2MOTDHBmeKawVH/M0e",
+    "stripeCustomerId": "cus_PvOpsC7DNaBd9A"
   }
 ]

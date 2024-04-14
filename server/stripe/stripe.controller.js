@@ -2,8 +2,11 @@ const initStripe = require("../stripe");
 const fs = require("fs").promises
 
 const createCheckoutSession = async (req, res) => {
+    console.log("Request body:", req.body);
+    
+    const { lineItems, stripeCustomerId } = req.body
 
-    const { lineItems } = req.body
+    console.log(stripeCustomerId)
 
     const stripe = initStripe();
     if (!stripe) {
@@ -13,7 +16,7 @@ const createCheckoutSession = async (req, res) => {
     try {
         const session = await stripe.checkout.sessions.create({
             mode: "payment",
-            customer: req.body.id,
+            customer: stripeCustomerId,
             line_items: lineItems.map(item => {
                 return {
                     price: item.priceId,
@@ -34,7 +37,9 @@ const createCheckoutSession = async (req, res) => {
 const verifySession= async (req, res) => {
     const stripe = initStripe()
     const sessionId = req.body.sessionId
-
+   const user = req.session.user
+     console.log(user)
+     console.log(sessionId)
     const session = await stripe.checkout.sessions.retrieve(sessionId)
 
     if (session.payment_status === "paid") {
@@ -43,6 +48,7 @@ const verifySession= async (req, res) => {
         const order = {
             orderNumber: Math.floor(Math.random() * 10000000),
             customerName: session.customer_details.name,
+            customerId: user.stripeCustomerId,
             products: lineItems.data,
             total: session.amount_total,
             date: new Date()
